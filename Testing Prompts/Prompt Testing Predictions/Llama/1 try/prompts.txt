@@ -1,0 +1,448 @@
+### Mistral 1.1
+    """From the context below, extract all protein-protein interactions in the format: 'Protein A -> [interaction type] -> Protein B'. Only include clear interactions from the main body of the document.""",
+
+    ### Mistral 1.2
+    """Identify any protein interactions mentioned and format them as: 'Protein A -> [interaction] -> Protein B'.""",
+
+    ### Mistral 1.3
+    """List all protein-protein relations in the following form: 'Protein A -> [binding/modulation/activation/etc.] -> Protein B'.""",
+
+    ### Mistral 1.4
+    """From the given context, return protein interaction pairs with interaction type in this format: 'Protein A -> [action] -> Protein B'.""",
+
+    ### Mistral 1.5
+    """Extract and format any explicit protein-protein interactions found using this template: 'Protein A -> [interaction type] -> Protein B'.""",
+
+    ### Mistral 2.1
+    """You are a biomedical research assistant specializing in extracting protein-protein interactions from scientific articles. Only extract information that is directly stated in the text. Do not invent interactions and only list what the text supports. From the text below, identify and extract all explicitly stated protein-protein interactions.
+    Output a list of interactions in the following structured format: 'Protein [name] -> [Interaction type if available] -> Protein [name]'""",
+
+    ### Mistral 2.2 MODIFICADA
+    """You are tasked with extracting protein-protein interactions from biomedical literature. Focus on accuracy and clear evidence from the text. Structure your output as follows: 'Protein [name] -> [Interaction type if available] -> Protein [name]'""",
+
+    ### Mistral 2.3 MODIFICADA
+    """You are a biomedical research assistant specializing in extracting protein-protein interactions from scientific articles. From the text below, identify and extract all explicitly stated protein-protein interactions. Output a list of interactions in the following structured format: 'Protein [name] -> [Interaction type if available] -> Protein [name]'.
+    
+    Example 1:
+    Text: "The interaction between p53 and MDM2 is crucial for regulating the cell cycle. p53 binds to MDM2 to inhibit its activity."
+    Extraction: Protein p53 -> inhibits -> Protein MDM2
+    
+    Example 2
+    Text: "EGFR forms a complex with GRB2 following activation by EGF."
+    Extraction: Protein EGFR -> complex formation -> Protein GRB2
+
+    Process the text below:
+    """,
+
+    ### Mistral 2.4 MODIFICADA
+    """You are tasked with extracting protein-protein interactions from biomedical literature. Focus on accuracy and clear evidence from the text. Structure your output as follows: 'Protein [name] -> [Interaction type if available] -> Protein [name]'.
+
+    Example 1:
+    Text: "Upon DNA damage, ATM phosphorylates and activates CHEK2, promoting checkpoint arrest."
+    Extraction: Protein ATM -> activates via phosphorylation -> Protein CHEK2
+   
+    Example 2:
+    Text: "Studies suggest that MYC may cooperate with MAX to drive transcriptional activation, although their interaction was not directly tested."
+    Extraction: Protein MYC -> cooperates -> Protein MAX
+    
+    Extract the protein-protein interactions from the following context:
+    """,
+
+    ### Mistral 3
+    """From the context below, extract all protein-protein interactions in the format: 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document.""",
+
+    ### Mistral 4 MODIFICADA
+    """
+    Consider each sentence separately and infer every pair of Protein-Protein Interactions from the provided sentences. 
+    For this task, consider Proteins and Genes as interchangeable terms. 
+    Provide each pair in a separate row whenever a sentence contains multiple Protein-Protein interaction pairs. 
+    Please, format your results in the following format: 'Protein A -> [interaction type] -> Protein B'.
+    Output Specifications:
+    'Protein 1' and 'Protein 2': The entities in the sentence, representing the proteins or genes.
+    'Interaction Type': The type of interaction identified between the protein entities (e.g., 'binds to', 'inhibits').
+    Here are the sentences that you need to process:
+    """,
+
+    ### Mistral 5.1 MODIFICADA
+    """
+    For each sentence below, perform the following steps:
+    1. Identify all proteins or genes (treat as interchangeable).
+    2. For every pair of proteins/genes, determine if an interaction is described.
+    3. For each interaction, specify the type (e.g., 'binds to', 'activates', 'inhibits').
+    4. Output results in the following format: 'Protein A -> [interaction type] -> Protein B'.
+    5. Each row should represent one interaction pair.
+
+    Input:
+    Sentence
+
+    Example:
+    "EGFR phosphorylates STAT3 and interacts with GRB2."
+    "MYC represses the expression of CDKN1A."
+
+    Expected output:
+    EGFR -> phosphorylates -> STAT3,
+    EGFR -> interacts with -> GRB2
+    MYC -> represses -> CDKN1A
+
+    Process the following sentences:
+    """,
+
+    ### Mistral 5.2 É IGUAL À ANTERIOR
+    """
+    For each sentence below, perform the following steps:
+    1. Identify all proteins or genes (treat as interchangeable).
+    2. For every pair of proteins/genes, determine if an interaction is described.
+    3. For each interaction, specify the type (e.g., 'binds to', 'activates', 'inhibits').
+    4. Output results in the following format: 'Protein A -> [interaction type] -> Protein B'.
+    5. Each row should represent one interaction pair.
+
+    Input:
+    Sentence
+
+    Example:
+    "EGFR phosphorylates STAT3 and interacts with GRB2."
+    "MYC represses the expression of CDKN1A."
+
+    Expected output:
+    EGFR -> phosphorylates -> STAT3,
+    EGFR -> interacts with -> GRB2,
+    MYC -> represses -> CDKN1A
+
+    Process the following sentences:
+    """,
+
+    ### Mistral 5.3 MODIFICADA
+    """
+    Extract all protein-protein (or gene-gene) interactions from each sentence below. For each detected interaction, output in the following format: 'Protein A -> [interaction type] -> Protein B'.
+
+    Rules:
+    - Treat 'protein' and 'gene' as synonyms.
+    - If multiple interactions are present in a sentence, output each as a separate.
+    - Do not leave any blank fields.
+
+    Input format: Sentence
+
+    Example input:
+    "AKT1 activates mTOR and binds to GSK3B."
+    "TP53 forms a complex with BAX."
+
+    Example output:
+    AKT1 -> activates -> mTOR
+    AKT1 -> binds to -> GSK3B
+    TP53 -> forms complex with -> BAX5
+
+    Sentences:
+    """,
+
+    ### Mistral 6.1
+    """
+    Extract all protein-protein or gene-gene interactions from the following text. For each interaction, write one line in the format: 'Protein1 -> [Interaction Type] -> Protein2'. If there are multiple interactions, list each on a separate line.
+    """,
+
+    ### Mistral 6.2 MODIFICADA
+    """
+    You are an expert in biomedical text mining.
+    Given the following text, identify every protein-protein or gene-gene interaction described.
+    Treat "protein" and "gene" as interchangeable.
+    For each interaction, output a single line in this exact format: 'Protein1 -> [Interaction Type] -> Protein2'
+    """,
+
+    ### Mistral 6.3 MODIFICADA
+    """
+    Extract all protein-protein or gene-gene interactions from the following text.
+    For each interaction, write one line in the format: 'Protein1 -> [Interaction Type] -> Protein2'
+
+    Examples:
+    Text: "p53 binds to MDM2 and inhibits its activity."
+    Output:
+    p53 -> binds to -> MDM2
+    p53 -> inhibits -> MDM2
+
+    Text: "BRCA1 interacts with RAD51 during DNA repair."
+    Output:
+    BRCA1 -> interacts with -> RAD51
+
+    Text:
+    """,
+
+    ### Mistral 7.1
+
+    """
+    From the context below, extract all protein-protein interactions in the format: 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document.
+
+    Example input:
+    "AKT1 activates mTOR and binds to GSK3B."
+
+    Example output:
+    AKT1 -> activates -> mTOR
+    AKT1 -> binds to -> GSK3B
+
+    Context:
+    """,
+
+    ### Mistral 7.2
+    """
+    From the context below, extract all protein-protein interactions in the format: 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document.
+
+    Example input:
+    "AKT1 activates mTOR and binds to GSK3B."
+
+    Example output:
+    AKT1 -> activates -> mTOR
+    AKT1 -> binds to -> GSK3B
+
+    Process the following context:
+    """,
+
+    ### Mistral 7.3
+
+    """Extract all protein-protein interactions from the context below in the format 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document.""",
+
+    ### Mistral 7.4
+
+    """
+    Extract all protein-protein interactions from the context below in the format 'Protein A ->  [Interaction Type (e.g., 'binds to', 'activates', 'forms complex with')] -> Protein B'. Only include clear interactions from the main body of the document.
+
+    Example input:
+    "AKT1 activates mTOR and binds to GSK3B."
+
+    Example output:
+    AKT1 -> activates -> mTOR
+    AKT1 -> binds to -> GSK3B
+
+    Context:
+    """,
+
+    ### Mistral 7.5
+
+    """
+    Extract all protein-protein interactions from the context below in the format 'Protein A ->  [Interaction Type (e.g., 'binds to', 'activates', 'forms complex with')] -> Protein B'. Only include clear interactions from the main body of the document.
+
+    Example input:
+    "AKT1 activates mTOR and binds to GSK3B."
+
+    Example output:
+    AKT1 -> activates -> mTOR
+    AKT1 -> binds to -> GSK3B
+
+    Process the following context:
+    """,
+
+    ### Mistral 7.6
+    """
+    For each sentence below, perform the following steps: identify all proteins; for every pair of proteins, determine if an interaction is described; for each interaction, specify the type (e.g., 'binds to', 'activates', 'inhibits'); extract results in the format 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B'.
+
+    Example:
+    "EGFR phosphorylates STAT3 and interacts with GRB2."
+
+    Expected output:
+    EGFR -> phosphorylates -> STAT3
+    EGFR -> interacts with -> GRB2
+
+
+    Process the following sentences:
+    """,
+
+    ### Mistral 7.7    
+
+    """
+    Infer every pair of Protein-Protein Interactions from the provided context. Provide each pair in a separate row whenever a sentence contains multiple Protein-Protein interaction pairs. Please, format your results in the format 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B'. Ensure that no columns are left blank.
+    Output Column Specifications:
+    'Protein A' and 'Protein B': The entities in the sentence, representing the proteins.
+    'Interaction Type': The type of interaction identified between the protein entities (e.g., 'binds to', 'inhibits'). 
+    Here are the sentences that you need to process:
+    """,
+
+    ### Mistral 8.1
+    "From the context below, extract all protein-protein interactions in the format: 'Protein A -> [Interaction Type (e.g., 'binds to', 'activates', 'forms complex with')] -> Protein B'. Only include clear interactions from the main body of the document.",
+
+    ### Mistral 8.2
+    "From the context below, extract all protein-protein interactions in the format: 'Protein A -> [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document.",
+
+    ### Mistral 8.3
+    "List all protein-protein relations in the following form: 'Protein A -> [interaction type] -> Protein B'.",
+
+    ### Mistral 8.4
+    "List all protein-protein relations in the following form: 'Protein A -> [Interaction Type (e.g., 'binds to', 'activates', 'forms complex with')] -> Protein B'.",
+
+    ### Mistral 8.5
+    "List all protein-protein relations in the following form: 'Protein A -> [Interaction Type (e.g., 'binds to', 'activates', 'forms complex with')] -> Protein B'. Only include clear interactions from the main body of the document.",
+     
+    ### Mistral 8.6
+    "From the context below, extract all protein-protein interactions in the format: 'Protein A ->  [Interaction Type (e.g., 'binds to', 'activates', 'forms complex with')] -> Protein B'. Only include clear interactions from the main body of the document.",
+
+    ### Mistral 8.7
+    "From the context below, extract all protein-protein interactions in the format: 'Protein A ->  [Interaction Type] -> Protein B'. Only include clear interactions from the main body of the document.",
+
+    ### Mistral 8.8
+    """From the context below, extract all protein-protein interactions in the format: 'Protein A -> [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document.
+
+    Example:
+
+    Input: "AKT1 activates mTOR and binds to GSK3B."
+    Output:
+    AKT1 -> activation -> mTOR  
+    AKT1 -> binding -> GSK3B  
+
+    ---
+
+    Now process the following context:
+    """,
+
+    ### Mistral 8.9
+
+    """
+    From the context below, extract all protein-protein interactions in the format: 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document. Use the following example for guidance but never output them.
+
+    Example:
+
+    Input: "AKT1 activates mTOR and binds to GSK3B."
+    Output:
+    AKT1 -> activation -> mTOR  
+    AKT1 -> binding -> GSK3B  
+
+
+    Process the following context:
+    """,
+
+    ### Mistral 8.10
+
+    """
+    Extract all protein-protein interactions from the context below in the format 'Protein A ->  [Interaction Type (e.g., 'binds to', 'activates', 'forms complex with')] -> Protein B'. Only include clear interactions from the main body of the document.
+
+    Example:
+
+    Input: "AKT1 activates mTOR and binds to GSK3B."
+    Output:
+    AKT1 -> activates -> mTOR
+    AKT1 -> binds to -> GSK3B
+
+    ---
+
+    Now process the following context:
+    """,
+
+    ### Mistral 8.11
+    """
+    Extract all protein-protein interactions from the context below in the format 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document.
+
+    Example:
+
+    Input: "AKT1 activates mTOR and binds to GSK3B."
+    Output:
+    AKT1 -> activates -> mTOR
+    AKT1 -> binds to -> GSK3B
+
+    ---
+
+    Now process the following context:
+    """,
+
+    ### Mistral 9.1
+
+    """
+    You are an expert biomedical information extractor.
+
+    Task: Extract all protein-protein interactions from the text below in the format: 'Protein A -> [binding/modulation/activation/etc.] -> Protein B'
+
+    Only include clear interactions from the main body of the document.
+
+    Note: The following example is just for your understanding. Do not include this example or any references to it in your output.
+
+    Example (DO NOT INCLUDE THIS IN YOUR OUTPUT):
+
+    Input: "AKT1 activates mTOR and binds to GSK3B."
+    Expected Output:
+    AKT1 -> activation -> mTOR  
+    AKT1 -> binding -> GSK3B
+
+    ---
+
+    Now, extract interactions from this context:
+
+    """,
+
+    ### Mistral 9.2
+
+    """
+    From the context below, extract all protein-protein interactions in the format: 'Protein A -> [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document.
+
+    Note: The following example is just for your understanding. Do not include this example or any references to it in your output.
+
+    Example (DO NOT INCLUDE THIS IN YOUR OUTPUT):
+
+    Input: "AKT1 activates mTOR and binds to GSK3B."
+    Expected Output:
+    AKT1 -> activation -> mTOR  
+    AKT1 -> binding -> GSK3B  
+
+    ---
+
+    Now process the following context:
+    """,
+
+    ### Mistral 9.3
+    """
+    From the context below, extract all protein-protein interactions in the format: 'Protein A ->  [Interaction Type] -> Protein B'. Only include clear interactions from the main body of the document.
+
+    Note: The following example is just for your understanding. Do not include this example or any references to it in your output.
+
+    Example (DO NOT INCLUDE THIS IN YOUR OUTPUT):
+
+    Input: "AKT1 activates mTOR and binds to GSK3B."
+    Expected Output:
+    AKT1 -> activation -> mTOR  
+    AKT1 -> binding -> GSK3B  
+
+    ---
+
+    Now process the following context:
+    """,
+
+    ### Mistral 9.4
+    """    
+    Role: You are a biomedical expert specializing in protein interaction extraction.
+
+    Task: Extract protein-protein interactions from the text below using the format: 'Protein A -> [Interaction Type] -> Protein B'.
+
+    Rules: Include only explicit interactions from the main document and NEVER include the example below or any references to it.
+
+    Example (For Understanding Only):
+
+    Input: "AKT1 activates mTOR and binds to GSK3B."
+    Output:
+    AKT1 -> activation -> mTOR
+    AKT1 -> binding -> GSK3B
+
+    Extract interactions from THIS text:
+    """,
+
+    ### Mistral 9.5
+
+    """
+    Step 1: Read the text carefully.
+    Step 2: Identify all protein-protein interactions (e.g., binding, activation).
+    Step 3: Format each as: 'Protein -> [Interaction] -> Protein'.
+    Step 4: Exclude hypothetical/example content (e.g., AKT1/mTOR/GSK3B).
+
+    Example (Do Not Reproduce):
+
+    Input: "AKT1 activates mTOR..."
+    Output: AKT1 -> activation -> mTOR
+
+    Process THIS input:
+    """,
+
+    #Mistral 9.6
+    """
+    You are an expert extractor. Extract protein interactions in the format: 'Protein A -> [Type] -> Protein B'.
+
+    Include: Direct interactions from the text (e.g., phosphorylates, binds).
+
+    Exclude: Hypotheticals, examples (like AKT1/mTOR/GSK3B), or non-main content.
+
+    Never include this example in outputs:
+    Input: "AKT1 activates mTOR..." → Output: AKT1 -> activation -> mTOR
+
+    Target Text:
+    """

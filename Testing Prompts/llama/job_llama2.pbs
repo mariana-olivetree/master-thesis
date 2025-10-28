@@ -1,0 +1,45 @@
+#PBS -l nodes=1:ppn=1:gpus=1
+#PBS -l walltime=12:00:00
+#PBS -m abe
+
+# To submit this job:
+# 1. Go the the HPC dashboard @ login.hpc.ugent.be
+# 2. In the menu bar, select Clusters -> RHEL9 Login node Shell Access. This will open a command line interface.
+# 3. In the command line interface, type the following commands:
+#      module swap cluster/joltik
+#      qsub job_example.pbs
+#    You can replace joltik with whatever cluster you want to use.
+# Make sure the job script is in the same directory as your project.
+
+# Go to the working directory
+cd $PBS_O_WORKDIR
+
+# Load modules
+module purge
+module load Python/3.11.3-GCCcore-12.3.0
+
+# Define paths
+VENV_DIR=$VSC_SCRATCH/venvs/llama3-test
+HF_CACHE_DIR=$VSC_SCRATCH/huggingface_cache
+
+# Create cache directory if not exists
+mkdir -p "$HF_CACHE_DIR"
+
+# Set Hugging Face cache location
+export TRANSFORMERS_CACHE="$HF_CACHE_DIR"
+export HF_HOME="$HF_CACHE_DIR"
+
+# Create and activate virtual environment if not already created
+if [ ! -d "$VENV_DIR" ]; then
+    python -m venv "$VENV_DIR"
+    source "$VENV_DIR/bin/activate"
+
+    pip install --upgrade pip
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+    pip install transformers==4.40.1 peft==0.10.0 auto-gptq==0.6.0 optimum==1.17.1 scikit-learn sentence_transformers accelerate==0.27.0 numpy pandas
+else
+    source "$VENV_DIR/bin/activate"
+fi
+
+# Run your script
+python llama3_try.py

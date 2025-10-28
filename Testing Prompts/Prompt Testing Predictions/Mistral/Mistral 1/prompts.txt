@@ -1,0 +1,9 @@
+1: "From the context below, extract all protein-protein interactions in the format: 'Protein A -> [interaction type] -> Protein B'. Only include clear interactions from the main body of the document.",
+
+2: "Identify any protein interactions mentioned and format them as: 'Protein A -> [interaction] -> Protein B'.",
+
+3: "List all protein-protein relations in the following form: 'Protein A -> [binding/modulation/activation/etc.] -> Protein B'.",
+
+4: "From the given context, return protein interaction pairs with interaction type in this format: 'Protein A -> [action] -> Protein B'.",
+
+5: "Extract and format any explicit protein-protein interactions found using this template: 'Protein A -> [interaction type] -> Protein B'."

@@ -1,0 +1,144 @@
+
+
+1. (MISTRAL 1.1)
+
+(ORIGINAL)
+"From the context below, extract all protein-protein interactions in the format: 'Protein A -> [interaction type] -> Protein B'. Only include clear interactions from the main body of the document.",
+
+
+1.1 (modificação interaction type)
+"From the context below, extract all protein-protein interactions in the format: 'Protein A -> [Interaction Type (e.g., 'binds to', 'activates', 'forms complex with')] -> Protein B'. Only include clear interactions from the main body of the document."
+
+1.2
+(modificação interaction type)
+"From the context below, extract all protein-protein interactions in the format: 'Protein A -> [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document."
+
+
+
+3. (MISTRAL 1.3)
+
+(ORIGINAL)
+"List all protein-protein relations in the following form: 'Protein A -> [binding/modulation/activation/etc.] -> Protein B'."
+
+
+3.1
+(modificação interaction type)
+"List all protein-protein relations in the following form: 'Protein A -> [interaction type] -> Protein B'."
+
+3.2
+(modificação interaction type)
+"List all protein-protein relations in the following form: 'Protein A -> [Interaction Type (e.g., 'binds to', 'activates', 'forms complex with')] -> Protein B'."
+
+3.3
+(modificação "main body")
+"List all protein-protein relations in the following form: 'Protein A -> [Interaction Type (e.g., 'binds to', 'activates', 'forms complex with')] -> Protein B'. Only include clear interactions from the main body of the document."
+
+
+
+3.3.3 (MISTRAL 3)
+
+(ORIGINAL)
+"From the context below, extract all protein-protein interactions in the format: 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document."
+
+
+3.3.3.1
+(modificação interaction type)
+"From the context below, extract all protein-protein interactions in the format: 'Protein A ->  [Interaction Type (e.g., 'binds to', 'activates', 'forms complex with')] -> Protein B'. Only include clear interactions from the main body of the document."
+
+3.3.3.2
+(modificação interaction type)
+"From the context below, extract all protein-protein interactions in the format: 'Protein A ->  [Interaction Type] -> Protein B'. Only include clear interactions from the main body of the document."
+
+
+
+2. (MISTRAL 7.2)
+
+(ORIGINAL)
+"From the context below, extract all protein-protein interactions in the format: 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document."
+
+Example input:
+"AKT1 activates mTOR and binds to GSK3B."
+
+Example output:
+AKT1 -> activates -> mTOR
+AKT1 -> binds to -> GSK3B
+
+Process the following context:
+
+2.1
+
+(modificação separador entre example e contexto + activatates/binds to)
+From the context below, extract all protein-protein interactions in the format: 'Protein A -> [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document.
+
+Example:
+Input: "AKT1 activates mTOR and binds to GSK3B."
+Output:
+AKT1 -> activation -> mTOR  
+AKT1 -> binding -> GSK3B  
+
+---
+
+Now process the following context:
+
+
+2.2
+
+(modificação exemplos guidance, separador entre example e contexto + activatates/binds to)
+From the context below, extract all protein-protein interactions in the format: 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document. Use the following example for guidance but never output them.
+
+Example:
+Input: "AKT1 activates mTOR and binds to GSK3B."
+Output:
+AKT1 -> activation -> mTOR  
+AKT1 -> binding -> GSK3B  
+
+
+Process the following context:
+
+
+
+5.
+(ORIGINAL)
+Extract all protein-protein interactions from the context below in the format 'Protein A ->  [Interaction Type (e.g., 'binds to', 'activates', 'forms complex with')] -> Protein B'. Only include clear interactions from the main body of the document.
+
+Example input:
+"AKT1 activates mTOR and binds to GSK3B."
+
+Example output:
+AKT1 -> activates -> mTOR
+AKT1 -> binds to -> GSK3B
+
+Process the following context:
+
+
+5.2
+(modificação exemplos guidance, separador entre example e contexto + activatates/binds to)
+Extract all protein-protein interactions from the context below in the format 'Protein A ->  [Interaction Type (e.g., 'binds to', 'activates', 'forms complex with')] -> Protein B'. Only include clear interactions from the main body of the document.
+
+Example:
+Input: "AKT1 activates mTOR and binds to GSK3B."
+Output:
+AKT1 -> activates -> mTOR
+AKT1 -> binds to -> GSK3B
+
+---
+
+Now process the following context:
+
+
+
+5.3
+ 
+(modificação exemplos guidance, separador entre example e contexto + activatates/binds to + interaction type)
+Extract all protein-protein interactions from the context below in the format 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document.
+
+Example:
+Input: "AKT1 activates mTOR and binds to GSK3B."
+Output:
+AKT1 -> activates -> mTOR
+AKT1 -> binds to -> GSK3B
+
+---
+
+Now process the following context:
+

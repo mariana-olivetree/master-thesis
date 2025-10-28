@@ -1,0 +1,43 @@
+#!/bin/bash
+#PBS -N Download_meditron_7b
+#PBS -l nodes=1:ppn=4:gpus=4
+#PBS -l walltime=12:00:00
+#PBS -m abe
+
+# --- Load Modules ---
+module load Python/3.11.3-GCCcore-12.3.0
+module load CUDA/12.1.1
+
+# --- Setup Virtual Environment ---
+VENV_DIR="$VSC_SCRATCH/hf_venv"
+python -m venv $VENV_DIR
+source $VENV_DIR/bin/activate
+
+# --- Install Dependencies ---
+pip install --upgrade pip
+pip install transformers accelerate huggingface_hub auto-gptq optimum torch
+
+# --- Set Cache Location to Avoid Disk Quota Issues ---
+export HF_HOME="$VSC_SCRATCH/.cache/huggingface"
+export TRANSFORMERS_CACHE="$VSC_SCRATCH/.cache/transformers"
+
+huggingface-cli login --token your_token
+
+# --- Setup Model Directory ---
+MODEL_DIR="$VSC_SCRATCH/meditron-7b-gptq"
+mkdir -p $MODEL_DIR
+
+python3 -c "
+from huggingface_hub import snapshot_download
+
+snapshot_download(
+    repo_id='TheBloke/meditron-7B-GPTQ',
+    local_dir='$MODEL_DIR',
+    local_dir_use_symlinks=False,
+    resume_download=True
+)
+"
+
+# --- Verify Download ---
+echo 'Downloaded model files:'
+ls -lh $MODEL_DIR

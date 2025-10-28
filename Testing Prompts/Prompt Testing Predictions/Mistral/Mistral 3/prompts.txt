@@ -1,0 +1,2 @@
+1: "From the context below, extract all protein-protein interactions in the format: 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document."
+

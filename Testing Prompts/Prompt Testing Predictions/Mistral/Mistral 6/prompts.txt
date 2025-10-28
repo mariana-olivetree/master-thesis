@@ -1,0 +1,38 @@
+"""Extract all protein-protein or gene-gene interactions from the following text.
+For each interaction, write one line in the format:
+Protein1 -> [Interaction Type] -> Protein2
+
+If there are multiple interactions, list each on a separate line.
+If there are no interactions, write "None".
+""",
+
+    # Prompt 2: Heuristic, step-by-step
+    """You are an expert in biomedical text mining.
+Given the following text, identify every protein-protein or gene-gene interaction described.
+Treat "protein" and "gene" as interchangeable.
+For each interaction, output a single line in this exact format:
+Protein1 -> [Interaction Type] -> Protein2
+
+If multiple interactions are present, list each on a separate line.
+If no interactions are found, output "None".
+""",
+
+    # Prompt 3: With explicit examples
+    """Extract all protein-protein or gene-gene interactions from the following text.
+For each interaction, write one line in the format:
+Protein1 -> [Interaction Type] -> Protein2
+
+Examples:
+Text: "p53 binds to MDM2 and inhibits its activity."
+Output:
+p53 -> [binds to] -> MDM2
+p53 -> [inhibits] -> MDM2
+
+Text: "BRCA1 interacts with RAD51 during DNA repair."
+Output:
+BRCA1 -> [interacts with] -> RAD51
+
+If there are no interactions, write "None".
+
+Text:
+"""

@@ -1,0 +1,23 @@
+#PBS -l nodes=1:ppn=1:gpus=1
+#PBS -l walltime=12:00:00
+#PBS -m abe
+
+# To submit this job:
+# 1. Go the the HPC dashboard @ login.hpc.ugent.be
+# 2. In the menu bar, select Clusters -> RHEL9 Login node Shell Access. This will open a command line interface.
+# 3. In the command line interface, type the following commands:
+#      module swap cluster/joltik
+#      qsub job_example.pbs
+#    You can replace joltik with whatever cluster you want to use.
+# Make sure the job script is in the same directory as your project.
+
+# Make sure we're in the project directory
+cd $PBS_O_WORKDIR
+
+# Setup virtual environment
+module load vsc-venv
+source vsc-venv --activate --requirements requirements.txt --modules modules.txt
+
+# Run your script here
+python mistral6.py
+

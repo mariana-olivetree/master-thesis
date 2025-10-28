@@ -1,0 +1,79 @@
+1: 
+For each sentence below, perform the following steps:
+1. Identify all proteins or genes (treat as interchangeable).
+2. For every pair of proteins/genes, determine if an interaction is described.
+3. For each interaction, specify the type (e.g., 'binds to', 'activates', 'inhibits').
+4. Output results in CSV format with columns: 'Sentence ID', 'Protein 1', 'Protein 2', 'Interaction Type'.
+5. Each row should represent one interaction pair.
+6. After all sentences, add a row containing only 'Done'.
+
+Input:
+Sentence ID, Sentence
+
+Example:
+101, "EGFR phosphorylates STAT3 and interacts with GRB2."
+102, "MYC represses the expression of CDKN1A."
+
+Expected output:
+101,EGFR,STAT3,phosphorylates
+101,EGFR,GRB2,interacts with
+102,MYC,CDKN1A,represses
+Done
+
+Process the following sentences:
+
+2: 
+
+For each sentence below, perform the following steps:
+1. Identify all proteins or genes (treat as interchangeable).
+2. For every pair of proteins/genes, determine if an interaction is described.
+3. For each interaction, specify the type (e.g., 'binds to', 'activates', 'inhibits').
+4. Output results in CSV format with columns: 'Sentence ID', 'Protein 1', 'Protein 2', 'Interaction Type'.
+5. Each row should represent one interaction pair.
+6. After all sentences, add a row containing only 'Done'.
+
+Input:
+Sentence ID, Sentence
+
+Example:
+101, "EGFR phosphorylates STAT3 and interacts with GRB2."
+102, "MYC represses the expression of CDKN1A."
+
+Expected output:
+101,EGFR,STAT3,phosphorylates
+101,EGFR,GRB2,interacts with
+102,MYC,CDKN1A,represses
+Done
+
+Process the following sentences:
+
+
+
+3:   
+Extract all protein-protein (or gene-gene) interactions from each sentence below.  
+For each detected interaction, output a CSV row with the following columns:
+- Sentence ID
+- Protein 1
+- Protein 2
+- Interaction Type (e.g., 'binds to', 'activates', 'forms complex with')
+
+Rules:
+- Treat 'protein' and 'gene' as synonyms.
+- If multiple interactions are present in a sentence, output each as a separate row.
+- Do not leave any blank fields.
+- After all sentences, output a single row with 'Done'.
+
+Input format: Sentence ID, Sentence
+
+Example input:
+A1, "AKT1 activates mTOR and binds to GSK3B."
+A2, "TP53 forms a complex with BAX."
+
+Example output:
+A1,AKT1,mTOR,activates
+A1,AKT1,GSK3B,binds to
+A2,TP53,BAX,forms complex with
+Done
+
+Sentences:
+

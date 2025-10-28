@@ -1,0 +1,106 @@
+1. (tentar exemplos não apareçam)
+
+You are an expert biomedical information extractor.
+
+Task: Extract all protein-protein interactions from the text below in the format:
+'Protein A -> [binding/modulation/activation/etc.] -> Protein B'
+
+Only include clear interactions from the main body of the document.
+
+Note: The following example is just for your understanding. Do not include this example or any references to it in your output.
+
+Example (DO NOT INCLUDE THIS IN YOUR OUTPUT):
+Input: "AKT1 activates mTOR and binds to GSK3B."
+Expected Output:
+AKT1 -> activation -> mTOR  
+AKT1 -> binding -> GSK3B
+
+---
+
+Now, extract interactions from this context:
+
+
+2. (tentar exemplos não apareçam)
+
+From the context below, extract all protein-protein interactions in the format: 'Protein A -> [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document.
+
+Note: The following example is just for your understanding. Do not include this example or any references to it in your output.
+
+Example (DO NOT INCLUDE THIS IN YOUR OUTPUT):
+Input: "AKT1 activates mTOR and binds to GSK3B."
+Expected Output:
+AKT1 -> activation -> mTOR  
+AKT1 -> binding -> GSK3B  
+
+---
+
+Now process the following context:
+
+
+3.
+
+From the context below, extract all protein-protein interactions in the format: 'Protein A ->  [Interaction Type] -> Protein B'. Only include clear interactions from the main body of the document.
+
+Note: The following example is just for your understanding. Do not include this example or any references to it in your output.
+
+Example (DO NOT INCLUDE THIS IN YOUR OUTPUT):
+Input: "AKT1 activates mTOR and binds to GSK3B."
+Expected Output:
+AKT1 -> activation -> mTOR  
+AKT1 -> binding -> GSK3B  
+
+---
+
+Now process the following context:
+
+
+4.
+
+Role: You are a biomedical expert specializing in protein interaction extraction.
+
+Task: Extract protein-protein interactions from the text below using the format:
+Protein A -> [Interaction Type] -> Protein B
+
+Rules:
+
+Include only explicit interactions from the main document.
+
+NEVER include the example below or any references to it.
+
+Example (For Understanding Only):
+Input: "AKT1 activates mTOR and binds to GSK3B."
+Output:
+AKT1 -> activation -> mTOR
+AKT1 -> binding -> GSK3B
+
+Extract interactions from THIS text:
+
+
+
+5.
+
+Step 1: Read the text carefully.
+Step 2: Identify all protein-protein interactions (e.g., binding, activation).
+Step 3: Format each as Protein -> [Interaction] -> Protein.
+Step 4: Exclude hypothetical/example content (e.g., AKT1/mTOR/GSK3B).
+
+Example (Do Not Reproduce):
+Input: "AKT1 activates mTOR..."
+Output: AKT1 -> activation -> mTOR
+
+Process THIS input:
+
+
+6.
+
+You are an expert extractor. Extract protein interactions in the format Protein A -> [Type] -> Protein B.
+
+Include: Direct interactions from the text (e.g., phosphorylates, binds).
+
+Exclude: Hypotheticals, examples (like AKT1/mTOR/GSK3B), or non-main content.
+
+Never include this example in outputs:
+Input: "AKT1 activates mTOR..." → Output: AKT1 -> activation -> mTOR
+
+Target Text:
+

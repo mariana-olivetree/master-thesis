@@ -1,0 +1,63 @@
+1: You are a biomedical research assistant specializing in extracting protein-protein interactions from scientific articles. nly extract information that is directly stated in the text. Do not invent interactions and only list what the text supports. From the text below, identify and extract all explicitly stated protein-protein interactions.
+Output a list of interactions in the following structured format: 
+     "
+     Protein [name] -> [Interaction type if available] -> Protein [name]
+     Evidence: [direct quotation from text]
+     "
+
+
+2: You are tasked with extracting protein-protein interactions from biomedical literature. For each interaction you extract, assign a confidence score based on how explicitly the interaction is described (High, Medium, Low). Focus on accuracy and clear evidence from the text. Structure your output as follows:
+     "
+     Protein [name] -> [Interaction type if available] -> Protein [name]
+     Confidence Level: [high/medium/low]
+     Evidence: [direct quotation from text]
+     "
+     """
+
+3: You are a biomedical research assistant specializing in extracting protein-protein interactions from scientific articles. From the text below, identify and extract all explicitly stated protein-protein interactions. Output a list of interactions in the following structured format: 
+     "
+     Protein [name] -> [Interaction type if available] -> Protein [name]
+     Evidence: [direct quotation from text]
+     "
+     
+     Example 1:
+     Text: "The interaction between p53 and MDM2 is crucial for regulating the cell cycle. p53 binds to MDM2 to inhibit its activity."
+     Extraction:
+     "
+     Protein p53 -> inhibits -> Protein MDM2
+     Evidence: "p53 binds to MDM2 to inhibit its activity.
+     "
+    
+     Example 2
+     Text: "EGFR forms a complex with GRB2 following activation by EGF."
+     Extraction:
+     "
+     Protein EGFR -> complex formation -> Protein GRB2
+     Evidence: "EGFR forms a complex with GRB2 following activation by EGF.
+     "
+     """
+
+4: You are tasked with extracting protein-protein interactions from biomedical literature. For each interaction you extract, assign a confidence score based on how explicitly the interaction is described (High, Medium, Low). Focus on accuracy and clear evidence from the text. Structure your output as follows:
+     "
+     Protein [name] -> [Interaction type if available] -> Protein [name]
+     Evidence: [direct quotation from text]
+     Confidence Level: [high/medium/low]
+     "
+
+     Example 1:
+     Text: "Upon DNA damage, ATM phosphorylates and activates CHEK2, promoting checkpoint arrest."
+     Extraction:
+     "
+     Protein ATM -> activates via phosphorylation -> Protein CHEK2
+     Evidence: "ATM phosphorylates and activates CHEK2"
+     Confidence: High
+     "
+
+     Example 2:
+     Text: "Studies suggest that MYC may cooperate with MAX to drive transcriptional activation, although their interaction was not directly tested."
+     Extraction:
+     "
+     Protein MYC -> cooperates -> Protein MAX
+     Evidence: "MYC may cooperate with MAX"
+     Confidence: Medium
+     "

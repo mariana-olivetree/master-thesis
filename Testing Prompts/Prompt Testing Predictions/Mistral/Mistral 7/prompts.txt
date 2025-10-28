@@ -1,0 +1,81 @@
+1. "From the context below, extract all protein-protein interactions in the format: 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document."
+
+Example input:
+"AKT1 activates mTOR and binds to GSK3B."
+
+Example output:
+AKT1 -> activates -> mTOR
+AKT1 -> binds to -> GSK3B
+
+Context:
+
+
+2.
+
+"From the context below, extract all protein-protein interactions in the format: 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document."
+
+Example input:
+"AKT1 activates mTOR and binds to GSK3B."
+
+Example output:
+AKT1 -> activates -> mTOR
+AKT1 -> binds to -> GSK3B
+
+Process the following context:
+
+
+3. 
+
+Extract all protein-protein interactions from the context below in the format 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B'. Only include clear interactions from the main body of the document.
+
+
+4.
+
+Extract all protein-protein interactions from the context below in the format 'Protein A ->  [Interaction Type (e.g., 'binds to', 'activates', 'forms complex with')] -> Protein B'. Only include clear interactions from the main body of the document.
+
+Example input:
+"AKT1 activates mTOR and binds to GSK3B."
+
+Example output:
+AKT1 -> activates -> mTOR
+AKT1 -> binds to -> GSK3B
+
+Context:
+
+5. 
+
+Extract all protein-protein interactions from the context below in the format 'Protein A ->  [Interaction Type (e.g., 'binds to', 'activates', 'forms complex with')] -> Protein B'. Only include clear interactions from the main body of the document.
+
+Example input:
+"AKT1 activates mTOR and binds to GSK3B."
+
+Example output:
+AKT1 -> activates -> mTOR
+AKT1 -> binds to -> GSK3B
+
+Process the following context:
+
+
+6.
+
+For each sentence below, perform the following steps: identify all proteins; for every pair of proteins, determine if an interaction is described; for each interaction, specify the type (e.g., 'binds to', 'activates', 'inhibits'); extract results in the format 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B
+
+Example:
+"EGFR phosphorylates STAT3 and interacts with GRB2."
+
+Expected output:
+EGFR -> phosphorylates -> STAT3
+EGFR -> interacts with -> GRB2
+
+
+Process the following sentences:
+
+
+7. 
+
+Infer every pair of Protein-Protein Interactions from the provided context. Provide each pair in a separate row whenever a sentence contains multiple Protein-Protein interaction pairs. Please, format your results in the format 'Protein A ->  [binding/modulation/activation/etc.] -> Protein B'. Ensure that no columns are left blank.
+Output Column Specifications:
+'Protein A' and 'Protein B': The entities in the sentence, representing the proteins.
+'Interaction Type': The type of interaction identified between the protein entities (e.g., 'binds to', 'inhibits'). 
+Here are the sentences that you need to process:
+

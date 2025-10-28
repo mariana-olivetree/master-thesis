@@ -1,0 +1,42 @@
+#!/bin/bash
+#PBS -N Download_Llama13B_GPTQ
+#PBS -l nodes=1:ppn=1:gpus=1
+#PBS -l walltime=1:00:00
+#PBS -m abe
+
+# --- Load Modules ---
+module load Python/3.11.3-GCCcore-12.3.0
+module load CUDA/12.1.1
+
+# --- Setup Virtual Environment ---
+VENV_DIR="$VSC_SCRATCH/hf_venv"
+python -m venv $VENV_DIR
+source $VENV_DIR/bin/activate
+
+# --- Install Dependencies ---
+pip install --upgrade pip
+pip install transformers accelerate huggingface_hub auto-gptq
+
+# --- Set Cache Location to Avoid Disk Quota Issues ---
+export HF_HOME="$VSC_SCRATCH/.cache/huggingface"
+export TRANSFORMERS_CACHE="$VSC_SCRATCH/.cache/transformers"
+
+# --- Setup Model Directory ---
+MODEL_DIR="$VSC_SCRATCH/Llama-2-13B-GPTQ"
+mkdir -p $MODEL_DIR
+
+# --- Download the Quantized Model ---
+python3 -c "
+from huggingface_hub import snapshot_download
+
+snapshot_download(
+    repo_id='TheBloke/Llama-2-13B-GPTQ',
+    local_dir='$MODEL_DIR',
+    local_dir_use_symlinks=False,
+    resume_download=True
+)
+"
+
+# --- Verify Download ---
+echo 'Downloaded model files:'
+ls -lh $MODEL_DIR
