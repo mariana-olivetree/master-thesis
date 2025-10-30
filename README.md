@@ -24,21 +24,12 @@ The project evaluates multiple open-source LLMs:
 
 ## Repository Structure
 
-mariana-olivetree/
-│
-├── Benchmark Databases/
-│ Contains BioGRID and STRING databases, plus preprocessing steps to generate benchmark files used for evaluating the extracted PPIs.
-│
-├── Extraction and Preprocessing/
-│ Contains processing scripts used to convert PDF articles into text chunks and generate their embeddings.
-│
-├── PPIs Extractions/
-│ Contains the code used to extract PPIs from 20 research articles using four LLMs (BioMistral, Mistral, LLaMA-13B, MedItRON).
-│
-├── PPIs Extraction Evaluation/
-│ Contains the code and results of the evaluation of extracted PPIs against benchmark datasets (BioGRID, STRING, GENIA) for the four models.
-│
-├── Testing Prompts/
-│ Contains code used to test 41 prompt variations on five LLMs using a single article as a controlled prompt-engineering experiment.
-│
-└── .gitattributes
+| Folder | Description |
+|--------|-------------|
+| `Benchmark Databases/` | Contains BioGRID and STRING databases + preprocessing steps to generate benchmark files used to evaluate PPI extractions. |
+| `Extraction and Preprocessing/` | Code for PDF → text processing, chunking, and generating embeddings. |
+| `PPIs Extractions/` | Code to extract PPIs from 20 research articles using four LLMs (BioMistral, Mistral, LLaMA-13B, MedItRON). |
+| `PPIs Extraction Evaluation/` | Contains evaluation code and results comparing extracted PPIs to benchmark datasets (BioGRID, STRING, GENIA). |
+| `Testing Prompts/` | Contains code to test 41 prompt variations on five LLMs using a single article. |
+| `.gitattributes` | Configuration for Git LFS to track large files. |
+
