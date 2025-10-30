@@ -18,7 +18,7 @@ The project evaluates multiple open-source LLMs:
 - **BioMistral**
 - **Mistral**
 - **LLaMA-13B**
-- **MedItRON**
+- **Meditron**
 
 ---
 
@@ -28,7 +28,7 @@ The project evaluates multiple open-source LLMs:
 |--------|-------------|
 | `Benchmark Databases/` | Contains BioGRID and STRING databases + preprocessing steps to generate benchmark files used to evaluate PPI extractions. |
 | `Extraction and Preprocessing/` | Code for PDF → text processing, chunking, and generating embeddings. |
-| `PPIs Extractions/` | Code to extract PPIs from 20 research articles using four LLMs (BioMistral, Mistral, LLaMA-13B, MedItRON). |
+| `PPIs Extractions/` | Code to extract PPIs from 20 research articles using four LLMs (BioMistral, Mistral, LLaMA-13B, Meditron. |
 | `PPIs Extraction Evaluation/` | Contains evaluation code and results comparing extracted PPIs to benchmark datasets (BioGRID, STRING, GENIA). |
 | `Testing Prompts/` | Contains code to test 41 prompt variations on five LLMs using a single article. |
 | `.gitattributes` | Configuration for Git LFS to track large files. |
